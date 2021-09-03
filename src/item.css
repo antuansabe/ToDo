@@ -7,10 +7,26 @@ div {
 
 
 li {
-    width: 400px;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width: 380px;
     border-radius: 20px;
-    background-color: aqua;
-    
+    background-color:#f1f1f1;
     margin-top: -10px;
     
+}
+
+.okey {
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 20px;
+    cursor:pointer;
+}
+
+.basura{
+    margin-top:9px;
+    margin-left: 15px;
+    margin-right: 20px;
+    cursor:pointer;
 }

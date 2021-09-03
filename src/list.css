@@ -1,5 +1,6 @@
 .section__list{
-    background-color: bisque;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 15px;
     width: 400px;
 }

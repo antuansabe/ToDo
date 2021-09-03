@@ -5,9 +5,9 @@ function TodoItem(props) {
         <>
         <div> 
             <li>
-                <span> Completado </span>
+                <span className="okey" > ✅ </span>
                 <p>{props.text}</p>
-                <span>Nariz</span>
+                <span className="basura">🗑️</span>
             </li>
             </div>    
         </>
