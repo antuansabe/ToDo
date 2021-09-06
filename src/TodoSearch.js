@@ -1,9 +1,9 @@
-import React,  { useState} from 'react';
+import React  from 'react';
 
-function TodoSearch() {
+function TodoSearch({ search, setSearch }) {
 
 
-    const [search, setSearch] = useState('')
+    
     
     const onSearchValueChange = (event) => {
         console.log(event.target.value);
@@ -13,7 +13,7 @@ function TodoSearch() {
 
 
     return (
-    <>    
+       
         <input 
         className="input__counter"
         placeholder="Buscar Tareas"
@@ -21,10 +21,8 @@ function TodoSearch() {
         onChange={onSearchValueChange}
         />
         
-        <p>{ search }  </p>
     
-    </>
-        );
+    );
 }
 
 export { TodoSearch } ;
