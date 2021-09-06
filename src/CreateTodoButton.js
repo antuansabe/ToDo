@@ -12,7 +12,7 @@ function CreateTodoButton() {
         <button
         onClick= {() => onClickButton('OH SHIT!')}
         >
-            +
+            Agregar Tarea 
         </button>
     );
 }
