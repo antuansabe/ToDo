@@ -14,27 +14,45 @@ const defaultTodos = [
   { text: 'Llorar', completed: true},
   ] */
 
-function App() {
 
-  const  localStorageTodos = localStorage.getItem('ÅTODOS_V1');
+  function useLocalStorage(itemName, initialValue) {
+    const  localStorageItem = localStorage.getItem(itemName);
+    let parsedItem;
+    
+
+    if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+    } else {
+    parsedItem = JSON.parse( localStorageItem );
+    }
+
+
+    const [item, setItem] = useState(parsedItem)
+
+
+    const saveItem = (newItem) => {
+      const stringifiedItem = JSON.stringify(newItem);
+      localStorage.setItem(itemName, stringifiedItem);
+      setItem(newItem);
+    };
+
+    return [
+      item,
+      saveItem,
+    ];
   
-  let parsedTodos;
-
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse( localStorageTodos );
   }
 
+function App() {
 
-  const [todos, setTodos] = useState(parsedTodos)
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+
+
   const [search, setSearch] = useState('');
   const completedTodos = todos.filter( todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
-
-  
 
 //Con esto filtraremos nuestros todos
   let searchedTodos = [];
@@ -50,12 +68,7 @@ function App() {
     })
   }
 
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
-  };
-
+  
 
 
   //Esta funcion buscara que texto coincide con el texto buscado 
