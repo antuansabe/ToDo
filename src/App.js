@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { TodoCounter } from './TodoCounter';
 import { TodoItem } from './TodoItem';
@@ -16,26 +16,34 @@ const defaultTodos = [
 
 
   function useLocalStorage(itemName, initialValue) {
-    const  localStorageItem = localStorage.getItem(itemName);
-    let parsedItem;
-    
+  
+    const [item, setItem] = useState(initialValue)
 
-    if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-    } else {
-    parsedItem = JSON.parse( localStorageItem );
-    }
+    useEffect( () => {
+    setTimeout( () => {
+      const  localStorageItem = localStorage.getItem(itemName);
+      
+      let parsedItem;
+  
+      if (!localStorageItem) {
+      localStorage.setItem(itemName, JSON.stringify(initialValue));
+      parsedItem = initialValue;
+      } else {
+      parsedItem = JSON.parse( localStorageItem );
+      }
 
+    }, 1000 )
+    });
+  
 
-    const [item, setItem] = useState(parsedItem)
-
+   
 
     const saveItem = (newItem) => {
       const stringifiedItem = JSON.stringify(newItem);
       localStorage.setItem(itemName, stringifiedItem);
       setItem(newItem);
     };
+
 
     return [
       item,
@@ -68,9 +76,6 @@ function App() {
     })
   }
 
-  
-
-
   //Esta funcion buscara que texto coincide con el texto buscado 
   const completeTodo = (text) => {
       const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -86,6 +91,14 @@ function App() {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
 };
+
+/*
+  useEffect(() => {
+    console.log('use effect');
+    
+    }, [totalTodos]);
+*/
+
   return (
   <>
     <TodoCounter 
@@ -97,7 +110,6 @@ function App() {
       setSearch={setSearch}
     />
     
-      
     <TodoList>
         { searchedTodos.map(todo => (
         <TodoItem 
@@ -109,9 +121,8 @@ function App() {
           />
         ))}
     </TodoList>
+
     <CreateTodoButton />
-      
-      
   </>
   );
 }
