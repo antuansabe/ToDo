@@ -5,7 +5,7 @@ import { TodoItem } from './TodoItem';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { CreateTodoButton } from './CreateTodoButton';
-
+import { Modal } from './Modal/index';
 
 /*
 const defaultTodos = [
@@ -74,6 +74,9 @@ function App() {
 
 
   const [search, setSearch] = useState('');
+  
+
+
   const completedTodos = todos.filter( todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
@@ -132,6 +135,10 @@ function App() {
           />
         ))}
     </TodoList>
+
+    <Modal>
+      <p>Teletransportacion</p>
+    </Modal>
 
     <CreateTodoButton />
   </>
