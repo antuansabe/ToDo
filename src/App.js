@@ -59,6 +59,7 @@ const defaultTodos = [
       saveItem,
       loading,
       error,
+      
   };
   
   }
@@ -70,10 +71,12 @@ function App() {
     saveItem: saveTodos,
     loading,
     error,
+    
   } = useLocalStorage('TODOS_V1', []);
 
 
   const [search, setSearch] = useState('');
+  const [openModal, setOpenModal] = useState(false);
   
 
 
@@ -136,11 +139,17 @@ function App() {
         ))}
     </TodoList>
 
+
+  { !!openModal && (  
     <Modal>
-      <p>Teletransportacion</p>
+      <p> { searchedTodos[0]?.text }   </p>
     </Modal>
 
-    <CreateTodoButton />
+  )}
+
+    <CreateTodoButton
+      setOpenModal={setOpenModal}
+    />
   </>
   );
 }

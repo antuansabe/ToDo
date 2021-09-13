@@ -7,4 +7,5 @@ button {
     margin-bottom: 60px;
     cursor:pointer;
     color: aliceblue;
+    z-index: 1;
 }
