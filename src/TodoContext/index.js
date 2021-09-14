@@ -32,6 +32,17 @@ function TodoProvider (props) {
         })
     }
     
+    // Esta funcion es para añadit un todo
+    
+    const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.push({
+        completed: false,
+        text,
+    }); 
+        saveTodos(newTodos);
+    };
+
       //Esta funcion buscara que texto coincide con el texto buscado 
         const completeTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -47,6 +58,8 @@ function TodoProvider (props) {
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
     };
+
+    
     
     return (
         <TodoContext.provider value={ { 
@@ -59,6 +72,9 @@ function TodoProvider (props) {
             searchedTodos,
             completeTodo,
             deleteTodo,
+            addTodo,
+            saveTodos,
+            
         }} >
         {props.childen}
 

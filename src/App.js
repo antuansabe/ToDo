@@ -6,6 +6,7 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { CreateTodoButton } from './CreateTodoButton';
 import { Modal } from './Modal/index';
+import { TodoForm } from './TodoForm';
 
 /*
 const defaultTodos = [
@@ -142,7 +143,7 @@ function App() {
 
   { !!openModal && (  
     <Modal>
-      <p> { searchedTodos[0]?.text }   </p>
+      <TodoForm /> 
     </Modal>
 
   )}
