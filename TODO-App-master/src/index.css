@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient(
+    circle 610px at 5.2% 51.6%,
+    rgba(5, 8, 114, 1) 0%,
+    rgba(7, 3, 53, 1) 97.5%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #b5ffd9;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  min-width: 550px;
+}
+
+#root {
+  margin: 0 24px;
+  position: relative;
+  min-height: 100px;
+  text-align: center;
+  /* max-width: 100vh; */
+}
+
+h1 {
+  color: white;
+  font-weight: bold;
+}
+p,
+span {
+  color: #170055;
+  font-weight: bold;
+}
+
+a {
+  color: whitesmoke;
+}
+
+a:visited {
+  color: whitesmoke;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.contact {
+  font-weight: 14px;
+  color: whitesmoke;
+}
