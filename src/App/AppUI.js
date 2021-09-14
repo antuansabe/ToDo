@@ -10,7 +10,7 @@ import { Modal } from "../Modal";
 import { TodoError } from "../TodoError";
 import { TodoLoading } from "../TodoLoading";
 import { TodoEmpty } from "../TodoEmpty";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+
 
 function AppUI() {
   const {
@@ -61,25 +61,11 @@ function AppUI() {
       {/* //Abre el modal para hacer nuevos todos en un futuro */}
 
       <footer>
-        <h2> Made by Jπ </h2>
+        <h2> Made by antuansabe </h2>
         <p className="contact">Contact</p>
         <div className="links">
-          <a href="https://github.com/PabloJL" target="_blank" rel="noreferrer">
+          <a href="https://github.com/antuansabe" target="_blank" rel="noreferrer">
             <FaGithub size={40} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/juan-pablo-jim%C3%A9nez-l%C3%B3pez-2590a1165/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin size={40} />
-          </a>
-          <a
-            href="https://www.instagram.com/juan_pablo78/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaInstagram size={40} />
           </a>
         </div>
       </footer>
