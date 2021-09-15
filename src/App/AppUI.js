@@ -65,7 +65,7 @@ function AppUI() {
         <p className="contact">Contact</p>
         <div className="links">
           <a href="https://github.com/antuansabe" target="_blank" rel="noreferrer">
-            <FaGithub size={40} />
+            
           </a>
         </div>
       </footer>
