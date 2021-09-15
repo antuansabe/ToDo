@@ -64,6 +64,7 @@ function AppUI() {
         <h2> Made by antuansabe </h2>
         <div className="links">
           <a href="https://github.com/antuansabe" target="_blank" rel="noreferrer">
+            
           </a>
         </div>
       </footer>
